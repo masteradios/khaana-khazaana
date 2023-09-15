@@ -108,8 +108,13 @@ Widget cardWidget(validData, index, type) {
                   margin: EdgeInsets.only(bottom: 15, top: 2),
                   child:ElevatedButton(
                     onPressed: () {
-                      // Define the onPressed behavior here
-                    },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const QuizFromEachFaculty()
+                          )
+                      );
+                      },
                     style: ElevatedButton.styleFrom(
                       elevation: 4, // Adjust the elevation as needed
                       primary: Colors.blue, // Set the button's background color
