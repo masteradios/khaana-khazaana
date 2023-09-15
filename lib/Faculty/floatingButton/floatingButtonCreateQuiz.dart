@@ -11,9 +11,9 @@ Widget floatingButtonCreate(context) {
   return Container(
     decoration: BoxDecoration(
         shape: BoxShape.rectangle,
-        color: Colors.blueGrey,
+        color: Colors.blue,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black, width: 1)),
+        border: Border.all(color: Colors.blueAccent, width: 1)),
     width: 100,
     height: 45,
     child: floatingButton(context),
@@ -24,7 +24,7 @@ Widget floatingButton(context) {
   return Consumer<ProfilePageProvider>(
     builder: (context, providerValue, child) {
       return FloatingActionButton(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
         elevation: 20,
         isExtended: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -57,8 +57,11 @@ Widget floatingButton(context) {
                     TextButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfilePage(),
+                              ));
                         },
                         child: const Text(
                           "Update",

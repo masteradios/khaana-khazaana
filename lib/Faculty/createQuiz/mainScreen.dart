@@ -40,7 +40,9 @@ class _CreateQuizState extends State<CreateQuiz> {
                   children: [
                     Center(
                       child: SizedBox(
-                        width: ResponsiveWidget.isSmallScreen(context) ? screenWidth(context) : screenWidth(context)/2,
+                        width: ResponsiveWidget.isSmallScreen(context)
+                            ? screenWidth(context)
+                            : screenWidth(context) / 2,
                         child: Column(
                           children: [
                             textFieldTitle(providerValue),
@@ -53,7 +55,7 @@ class _CreateQuizState extends State<CreateQuiz> {
                     listViewQuestions(context, providerValue),
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(top: 10),
+                        margin: EdgeInsets.only(bottom: 100),
                         child: Align(
                           alignment: Alignment.center,
                           child: submitQuizButton(),

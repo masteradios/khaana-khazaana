@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/Student/startQuiz/PageView/contentOfPageView.dart';
 
 import '../../../reusableWidgets/Responsive.dart';
 
@@ -28,7 +29,9 @@ descText(context) {
       padding: const EdgeInsets.only(bottom: 10, top: 10),
       child: Text("Description: ",
           style: TextStyle(
-              fontSize: setSize(context, 18), fontWeight: FontWeight.w600)));
+              color: Colors.blue,
+              fontSize: setSize(context, 18),
+              fontWeight: FontWeight.w600)));
 }
 
 totalQuesCont(context, String totalQues) {
@@ -47,25 +50,43 @@ quizDifficultyCont(context, String difficulty) {
           textAlign: TextAlign.center,
           overflow: TextOverflow.visible,
           style: TextStyle(
-              fontSize: setSize(context, 18), fontWeight: FontWeight.w600)));
+              color: Colors.blue,
+              fontSize: setSize(context, 18),
+              fontWeight: FontWeight.w600)));
 }
 
 quizDescCont(context, quizDesc) {
-  return Container(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Text(quizDesc,
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.visible,
-          style: TextStyle(
-              fontSize: setSize(context, 18), fontWeight: FontWeight.w400)));
+  return Column(
+    children: [
+      Container(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(quizDesc,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.visible,
+              style: TextStyle(
+                  fontSize: setSize(context, 18),
+                  fontWeight: FontWeight.w400))),
+      dividerLineContainer(context),
+      SizedBox(
+        height: 10,
+      )
+    ],
+  );
 }
 
 quizTitleContainer(quizTitle, context) {
-  return Container(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Text(quizTitle,
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.visible,
-          style: TextStyle(
-              fontSize: setSize(context, 20), fontWeight: FontWeight.w800)));
+  return Column(
+    children: [
+      Container(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text(quizTitle,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.visible,
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: setSize(context, 20),
+                  fontWeight: FontWeight.w800))),
+      dividerLineContainer(context),
+    ],
+  );
 }

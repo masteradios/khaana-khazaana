@@ -31,7 +31,7 @@ Widget toggleButtonEasy(providerValue, context) {
   return Row(
     children: [
       Radio(
-        activeColor: Colors.cyan,
+        activeColor: Colors.green,
         value: 0,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {
@@ -48,7 +48,7 @@ Widget toggleButtonMedium(providerValue, context) {
   return Row(
     children: [
       Radio(
-        activeColor: Colors.cyan,
+        activeColor: Colors.orange,
         value: 1,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {
@@ -65,7 +65,7 @@ Widget toggleButtonDifficult(providerValue, context) {
   return Row(
     children: [
       Radio(
-        activeColor: Colors.cyan,
+        activeColor: Colors.red,
         value: 2,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {

@@ -32,7 +32,8 @@ Widget contentOfAlertDialog(context, index, snapshot) {
               }
 
               // Set snapshots in String.............................
-              String? quest = snapshot2.data?.docs[index2]['Question'].toString();
+              String? quest =
+                  snapshot2.data?.docs[index2]['Question'].toString();
               String? ans1 = snapshot2.data?.docs[index2]['Answer1'].toString();
               String? ans2 = snapshot2.data?.docs[index2]['Answer2'].toString();
               String? ans3 = snapshot2.data?.docs[index2]['Answer3'].toString();
@@ -48,7 +49,7 @@ Widget contentOfAlertDialog(context, index, snapshot) {
                             fontSize: setSize(context, 20),
                             fontWeight: FontWeight.w600)),
                     Text(
-                      "${quest=="null" ? "" : quest}",
+                      "${quest == "null" ? "" : quest}",
                       style: TextStyle(
                           fontSize: setSize(context, 19),
                           fontWeight: FontWeight.w500),
@@ -57,15 +58,19 @@ Widget contentOfAlertDialog(context, index, snapshot) {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        answerContainer("A.) ${ans1=="null" ? "" : ans1}", context),
-                        answerContainer("B.) ${ans2=="null" ? "" : ans2}", context),
+                        answerContainer(
+                            "A.) ${ans1 == "null" ? "" : ans1}", context),
+                        answerContainer(
+                            "B.) ${ans2 == "null" ? "" : ans2}", context),
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        answerContainer("C.) ${ans3=="null" ? "" : ans3}", context),
-                        answerContainer("D.) ${ans4=="null" ? "" : ans4}", context),
+                        answerContainer(
+                            "C.) ${ans3 == "null" ? "" : ans3}", context),
+                        answerContainer(
+                            "D.) ${ans4 == "null" ? "" : ans4}", context),
                       ],
                     ),
                   ],
