@@ -19,27 +19,30 @@ Widget buttonSubmit() {
 }
 
 Widget buttonContent(providerValue, context) {
-  return ElevatedButton(
-      style: const ButtonStyle(elevation: MaterialStatePropertyAll(20)),
-      onPressed: () async {
-        if (providerValue.email.trim() != "" &&
-            providerValue.password != "" &&
-            providerValue.name.trim() != "") {
-          FocusManager.instance.primaryFocus?.unfocus(); // To remove Keyboard
-          showAlertDialog(context); // To show Alert Loading Dialog Box
+  return SizedBox(
+    width: 700,
+    child: ElevatedButton(
+        style: const ButtonStyle(elevation: MaterialStatePropertyAll(20)),
+        onPressed: () async {
+          if (providerValue.email.trim() != "" &&
+              providerValue.password != "" &&
+              providerValue.name.trim() != "") {
+            FocusManager.instance.primaryFocus?.unfocus(); // To remove Keyboard
+            showAlertDialog(context); // To show Alert Loading Dialog Box
 
-          setDataToFirebase(providerValue,
-              context); // Set data to Firebase See Below.............
+            setDataToFirebase(providerValue,
+                context); // Set data to Firebase See Below.............
 
-        } else {
-          long_flutter_toast("Please fill out all fields to Continue");
-        }
-      },
-      child: Text(
-        "Submit",
-        style: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: setSize(context, 22)),
-      ));
+          } else {
+            long_flutter_toast("Please fill out all fields to Continue");
+          }
+        },
+        child: Text(
+          "Submit",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: setSize(context, 22)),
+        )),
+  );
 }
 
 // Set data to Firebase.......................................
