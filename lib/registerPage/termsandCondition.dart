@@ -11,7 +11,7 @@ Widget termsConditions() {
           textAlign: TextAlign.center,
           TextSpan(
               text: 'By continuing, you agree to our ',
-              style: const TextStyle(fontSize: 16, color: Colors.black),
+              style: const TextStyle(fontSize: 16, color: Colors.white),
               children: <TextSpan>[
                 TextSpan(
                     recognizer: TapGestureRecognizer()
@@ -21,12 +21,12 @@ Widget termsConditions() {
                     text: 'Terms & Conditions',
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: Colors.white,
                       decoration: TextDecoration.underline,
                     )),
                 TextSpan(
                     text: ' and ',
-                    style: const TextStyle(fontSize: 16, color: Colors.black),
+                    style: const TextStyle(fontSize: 16, color: Colors.white),
                     children: <TextSpan>[
                       TextSpan(
                         recognizer: TapGestureRecognizer()
@@ -36,7 +36,7 @@ Widget termsConditions() {
                         text: 'Privacy Policy',
                         style: const TextStyle(
                             fontSize: 16,
-                            color: Colors.black,
+                            color: Colors.white,
                             decoration: TextDecoration.underline),
                       )
                     ])

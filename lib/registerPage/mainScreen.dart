@@ -56,7 +56,7 @@ class _RegisterState extends State<Register> {
 
   Widget registerText() {
     return Text(
-      "Register Now",
+      "REGISTER NOW",
       style: TextStyle(
           fontSize: setSize(context, 35),
           fontWeight: FontWeight.w800,
@@ -67,19 +67,9 @@ class _RegisterState extends State<Register> {
   BoxDecoration pageDecoration() {
     return const BoxDecoration(
         gradient: LinearGradient(colors: [
-      Colors.deepOrange,
-      Colors.orangeAccent,
-      Colors.grey,
-      Colors.blueGrey,
-      Colors.blueAccent,
-      Colors.blue,
-    ], stops: [
-      0.1,
-      0.3,
-      0.5,
-      0.6,
-      0.8,
-      1
-    ], begin: Alignment.bottomRight, end: Alignment.topLeft));
+          Colors.teal,
+          Colors.blue,
+    ],
+            begin: Alignment.bottomRight, end: Alignment.topLeft));
   }
 }

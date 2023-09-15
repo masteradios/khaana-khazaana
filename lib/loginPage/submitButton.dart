@@ -31,23 +31,26 @@ Widget submitButton() {
 Widget buttonContent(providerValue, context) {
   return Consumer<ProfilePageProvider>(
     builder: (context, profileProvider, child) {
-      return ElevatedButton(
-        onPressed: () async {
-          if (providerValue.email.trim() != "" &&
-              providerValue.password != "") {
-            FocusManager.instance.primaryFocus?.unfocus();
-            showAlertDialog(context);
-            getValueFromFirebase(providerValue, context,
-                profileProvider); // firebase Activities see below..........
-          } else {
-            long_flutter_toast("Please fill out all fields to Continue");
-          }
-        },
-        style: submitButtonStyle(),
-        // Button Styling See below..............................
-        child: Text("Submit",
-            style: TextStyle(
-                fontSize: setSize(context, 22), fontWeight: FontWeight.bold)),
+      return SizedBox(
+        width: 900,
+        child: ElevatedButton(
+          onPressed: () async {
+            if (providerValue.email.trim() != "" &&
+                providerValue.password != "") {
+              FocusManager.instance.primaryFocus?.unfocus();
+              showAlertDialog(context);
+              getValueFromFirebase(providerValue, context,
+                  profileProvider); // firebase Activities see below..........
+            } else {
+              long_flutter_toast("Please fill out all fields to Continue");
+            }
+          },
+          style: submitButtonStyle(),
+          // Button Styling See below..............................
+          child: Text("Submit",
+              style: TextStyle(
+                  fontSize: setSize(context, 22), fontWeight: FontWeight.bold)),
+        ),
       );
     },
   );
