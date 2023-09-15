@@ -59,6 +59,7 @@ Widget cardWidget(validData, index, type) {
                             ),
                           ],
                         ),
+
                       ],
                     ),
                   ),
