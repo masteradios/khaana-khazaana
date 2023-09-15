@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "440200551159",
+    "project_id": "khaana-khazaana",
+    "storage_bucket": "khaana-khazaana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440200551159:android:1199e5542752bba52d11f2",
+        "android_client_info": {
+          "package_name": "com.example.gyansaathi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuTeZVdQ-3S_gwioEXbb4SCjZBY9DUta4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440200551159:android:f199919adc69faab2d11f2",
+        "android_client_info": {
+          "package_name": "com.example.khaana_khazaana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuTeZVdQ-3S_gwioEXbb4SCjZBY9DUta4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440200551159:android:86e0f920a1a709de2d11f2",
+        "android_client_info": {
+          "package_name": "com.sumit401.champquizz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuTeZVdQ-3S_gwioEXbb4SCjZBY9DUta4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
