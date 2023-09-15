@@ -25,7 +25,7 @@ Widget listViewQuestions(context, providerValue) {
             style: TextStyle(
                 fontSize: setSize(context, 24),
                 fontWeight: FontWeight.bold,
-                color: hexToColor("#8f3040"),
+                color: Colors.blue,
                 overflow: TextOverflow.visible,
                 wordSpacing: 2,
                 letterSpacing: 0.4),

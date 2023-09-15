@@ -72,14 +72,14 @@ class _LoginPageState extends State<LoginPage> {
 Widget loginText(context) {
   return Container(
     decoration: BoxDecoration(
-        color: hexToColor("#079375"),
+        color: Colors.transparent,
         shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(20)),
+        borderRadius: BorderRadius.circular(40)),
     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
     margin: const EdgeInsets.symmetric(vertical: 20),
-    child: Text("Login",
+    child: Text("LOGIN",
         style: TextStyle(
-            fontSize: setSize(context, 30),
+            fontSize: setSize(context, 50),
             fontWeight: FontWeight.bold,
             color: Colors.white,
             fontStyle: FontStyle.normal)),
@@ -89,18 +89,7 @@ Widget loginText(context) {
 BoxDecoration pageDecoration() {
   return const BoxDecoration(
       gradient: LinearGradient(colors: [
-    Colors.redAccent,
-    Colors.orange,
-    Colors.grey,
-    Colors.brown,
-    Colors.blueAccent,
-    Colors.blue,
-  ], stops: [
-    0.1,
-    0.2,
-    0.3,
-    0.5,
-    0.9,
-    1
-  ], begin: Alignment.bottomLeft, end: Alignment.topRight));
+        Colors.teal,
+        Colors.blue,
+      ], begin: Alignment.bottomCenter, end: Alignment.topCenter));
 }

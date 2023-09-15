@@ -11,7 +11,9 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: ResponsiveWidget.isSmallScreen(context) ? Size.fromHeight(screenHeight(context) / 4) : Size.fromHeight(screenHeight(context) / 2.5),
+          preferredSize: ResponsiveWidget.isSmallScreen(context)
+              ? Size.fromHeight(screenHeight(context) / 4)
+              : Size.fromHeight(screenHeight(context) / 2.5),
           child: appBarAbout(context)),
       body: Container(
         margin: const EdgeInsets.only(bottom: 20),
@@ -30,9 +32,7 @@ class AboutPage extends StatelessWidget {
       margin: const EdgeInsets.only(top: 30, bottom: 20),
       child: Text("About",
           style: TextStyle(
-              fontSize: 30,
-              color: Colors.cyan.shade800,
-              fontWeight: FontWeight.bold)),
+              fontSize: 30, color: Colors.blue, fontWeight: FontWeight.bold)),
     );
   }
 

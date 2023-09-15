@@ -6,6 +6,7 @@ Widget textFieldTitle(providerValue) {
       onChanged: (value) {
         providerValue.getQuizTitle(value);
       },
+      cursorColor: Colors.blue,
       decoration: const InputDecoration(labelText: "Quiz Title"));
 }
 

@@ -31,14 +31,14 @@ Container showQuiz(context) {
                     height: 1.5,
                     fontSize: setSize(context, 24),
                     fontWeight: FontWeight.bold,
-                    color: hexToColor("#263300"),
+                    color: Colors.blue,
                     overflow: TextOverflow.visible,
                     wordSpacing: 2,
                     letterSpacing: 0.4),
                 textAlign: TextAlign.center,
               ));
         } else {
-          return  ResponsiveWidget.isSmallScreen(context)
+          return ResponsiveWidget.isSmallScreen(context)
               ? ListView.builder(
                   itemCount: snapshot.data?.docs.length,
                   itemBuilder: (context, index) {
@@ -51,8 +51,9 @@ Container showQuiz(context) {
                 )
               : GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: ResponsiveWidget.isMediumScreen(context) ? 2 : 3,
-                mainAxisExtent: screenHeight(context) / 2.5),
+                      crossAxisCount:
+                          ResponsiveWidget.isMediumScreen(context) ? 2 : 3,
+                      mainAxisExtent: screenHeight(context) / 2.5),
                   itemCount: snapshot.data?.docs.length,
                   itemBuilder: (context, index) {
                     if (!snapshot.hasData) {

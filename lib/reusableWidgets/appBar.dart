@@ -40,14 +40,13 @@ AppBar appBarCreate(context, title) {
 
 AppBar appBarWithLogout(context, title) {
   return AppBar(
-    title: Text(title),
-    centerTitle: true,
-    elevation: 10,
-    actions: [
-      containerLogout(context),
-    ],
-    backgroundColor: Colors.blue,
-  );
+      title: Text(title),
+      centerTitle: true,
+      elevation: 10,
+      actions: [
+        containerLogout(context),
+      ],
+      backgroundColor: Colors.blue);
 }
 
 Container containerLogout(context) {
