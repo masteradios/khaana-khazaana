@@ -69,9 +69,9 @@ class _SplashScreenState extends State<SplashScreen> {
     getProfileInfo(profileProvider);
 
     return profileProvider.userType == "1"
-        ? const FacultyHome()
+        ?  FacultyHome()
         : profileProvider.userType == "0"
-            ? const StudentHome()
-            : const Register();
+            ?  StudentHome()
+            :  Register();
   }
 }
