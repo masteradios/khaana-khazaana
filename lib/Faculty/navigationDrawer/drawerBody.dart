@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/Faculty/uploadvideo/video.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -18,13 +19,16 @@ ListTile listTileMyQuiz(context) {
     leading:
         const Icon(FontAwesomeIcons.receipt, size: 20, color: Colors.black),
     title: Text(
-      "My Quiz",
+      "Upload Video",
       style: TextStyle(
         fontSize: setSize(context, 18),
         fontWeight: FontWeight.w400,
       ),
     ),
-    onTap: () {},
+    onTap: ()
+    {
+      Navigator.push(context, MaterialPageRoute(builder: (context) =>  UploadVideo(),));
+    },
   );
 }
 

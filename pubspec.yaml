@@ -50,6 +50,8 @@ dependencies:
   url_launcher: ^6.1.7
   animated_splash_screen: ^1.3.0
   google_fonts: ^2.2.4
+  image_picker: ^1.0.4
+  firebase_storage: ^11.2.6
 
 
 dev_dependencies:

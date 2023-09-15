@@ -47,7 +47,7 @@ class _RegisterState extends State<Register> {
           textFieldEmail(),
           textFieldPassword(),
           buttonSubmit(),
-          termsConditions(),
+          //termsConditions(),
           alreadyUserLogin(context),
         ],
       ),
