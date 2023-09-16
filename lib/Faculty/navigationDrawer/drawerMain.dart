@@ -20,7 +20,9 @@ Drawer navigationDrawer(context) {
           listTileAbout(context),
           //listTilePrivacyPolicy(context),
           //listTileTerms(context),
+
           listTileShare(context),
+          listTileLogout(context),
         ],
       ),
     ),

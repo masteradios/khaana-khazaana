@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../../aboutPage/mainPage.dart';
 import '../../constants/constantString.dart';
 import '../../reusableWidgets/Responsive.dart';
+import '../../reusableWidgets/alertDialogs/alertDialogLogout.dart';
 import '../../reusableWidgets/profileSection/getProfileInfo.dart';
 import '../../reusableWidgets/profileSection/mainPage.dart';
 import '../../reusableWidgets/profileSection/provider.dart';
@@ -25,9 +26,12 @@ ListTile listTileMyQuiz(context) {
         fontWeight: FontWeight.w400,
       ),
     ),
-    onTap: ()
-    {
-      Navigator.push(context, MaterialPageRoute(builder: (context) =>  UploadVideo(),));
+    onTap: () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => UploadVideo(),
+          ));
     },
   );
 }
@@ -76,8 +80,11 @@ Widget listTileCreate(context) {
                     TextButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfilePage(),
+                              ));
                         },
                         child: const Text(
                           "Update",
@@ -98,6 +105,27 @@ Widget listTileCreate(context) {
       );
     },
   );
+}
+
+ListTile listTileLogout(context) {
+  return ListTile(
+      style: ListTileStyle.drawer,
+      contentPadding: const EdgeInsets.only(top: 15, left: 20),
+      leading: const Icon(FontAwesomeIcons.arrowRightFromBracket,
+          size: 20, color: Colors.black),
+      title: Text(
+        "Sign out",
+        style: TextStyle(
+            fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+      ),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return alertDialogSignOut(context);
+          },
+        );
+      });
 }
 
 Widget listTileProfile(context) {
@@ -192,10 +220,8 @@ ListTile listTileShare(context) {
           fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
     ),
     onTap: () async {
-      await launchUrlString(appLink,
-      webOnlyWindowName: "App Share");
+      await launchUrlString(appLink, webOnlyWindowName: "App Share");
       Navigator.pop(context);
-
     },
   );
 }

@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../../aboutPage/mainPage.dart';
 import '../../constants/constantString.dart';
 import '../../reusableWidgets/Responsive.dart';
+import '../../reusableWidgets/alertDialogs/alertDialogLogout.dart';
 import '../../reusableWidgets/profileSection/getProfileInfo.dart';
 import '../../reusableWidgets/profileSection/mainPage.dart';
 import '../../reusableWidgets/profileSection/provider.dart';
@@ -46,6 +47,27 @@ ListTile listTileCheckScore(context) {
           context, MaterialPageRoute(builder: (context) => const CheckScore()));
     },
   );
+}
+
+ListTile listTileLogout(context) {
+  return ListTile(
+      style: ListTileStyle.drawer,
+      contentPadding: const EdgeInsets.only(top: 15, left: 20),
+      leading: const Icon(FontAwesomeIcons.arrowRightFromBracket,
+          size: 20, color: Colors.black),
+      title: Text(
+        "Sign out",
+        style: TextStyle(
+            fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+      ),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return alertDialogSignOut(context);
+          },
+        );
+      });
 }
 
 Container listTileProfile(context) {
@@ -144,20 +166,17 @@ ListTile listTileShare(context) {
     ),
     onTap: () async {
       String mailto =
-          "mailto:sumitsinha401@gmail.com?subject=Query Regarding Quiz Application";
-      await launchUrlString(mailto,
-      mode: LaunchMode.externalApplication);
+          "mailto:lintosaji.1990@gmail.com?subject=Query Regarding Quiz Application";
+      await launchUrlString(mailto, mode: LaunchMode.externalApplication);
     },
   );
 }
-
 
 ListTile Game(context) {
   return ListTile(
     style: ListTileStyle.drawer,
     contentPadding: const EdgeInsets.only(top: 15, left: 20),
-    leading:
-    const Icon(FontAwesomeIcons.apple, size: 20, color: Colors.black),
+    leading: const Icon(FontAwesomeIcons.apple, size: 20, color: Colors.black),
     title: Text(
       "Games",
       style: TextStyle(

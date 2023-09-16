@@ -43,26 +43,26 @@ AppBar appBarWithLogout(context, title) {
       title: Text(title),
       centerTitle: true,
       elevation: 10,
-      actions: [
-        containerLogout(context),
-      ],
+      // actions: [
+      //   containerLogout(context),
+      // ],
       backgroundColor: Colors.blue);
 }
 
-Container containerLogout(context) {
-  return Container(
-      padding: const EdgeInsets.only(right: 10),
-      child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return alertDialogSignOut(context);
-              },
-            );
-          },
-          icon: const Icon(FontAwesomeIcons.rightFromBracket)));
-}
+// Container containerLogout(context) {
+//   return Container(
+//       padding: const EdgeInsets.only(right: 10),
+//       child: IconButton(
+//           onPressed: () {
+//             showDialog(
+//               context: context,
+//               builder: (context) {
+//                 return alertDialogSignOut(context);
+//               },
+//             );
+//           },
+//           icon: const Icon(FontAwesomeIcons.rightFromBracket)));
+// }
 
 AppBar appBarAbout(context) {
   return AppBar(
