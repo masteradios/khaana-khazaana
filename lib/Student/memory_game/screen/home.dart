@@ -52,12 +52,11 @@ class _HomeState extends State<Home> {
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
           alignment: Alignment.center,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.blue[500]!,
-                Colors.blue[900]!,
-                Colors.cyan[900]!,
+                Colors.blue,
+                Colors.teal,
                // Colors.blue[900]!,
               ],
               begin: Alignment.topCenter,

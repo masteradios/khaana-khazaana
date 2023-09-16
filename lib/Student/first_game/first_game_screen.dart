@@ -52,12 +52,11 @@ class _HomeScreenState extends State<FirstGameScreen> {
     return Scaffold(
       body: Container(
         height: 1000,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.blue[500]!,
-                Colors.blue[900]!,
-                Colors.cyan[900]!,
+                Colors.blue,
+                Colors.teal,
                 // Colors.blue[900]!,
               ],
               begin: Alignment.topCenter,

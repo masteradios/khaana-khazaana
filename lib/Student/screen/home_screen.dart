@@ -27,12 +27,11 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.blue[500]!,
-                Colors.blue[900]!,
-                Colors.cyan[900]!,
+                Colors.blue,
+                Colors.teal,
                 // Colors.blue[900]!,
               ],
               begin: Alignment.topCenter,

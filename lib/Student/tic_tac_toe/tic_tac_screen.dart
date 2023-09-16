@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/Student/tic_tac_toe/utils.dart';
 
@@ -73,7 +72,7 @@ class _MainPageState extends State<MainPage> {
       case Player.O:
         return Colors.blue;
       case Player.X:
-        return Colors.red;
+        return Colors.teal;
       default:
         return Colors.white;
     }
@@ -116,8 +115,7 @@ class _MainPageState extends State<MainPage> {
   bool isEnd() =>
       matrix.every((values) => values.every((value) => value != Player.none));
 
-  /// Check out logic here: https://stackoverflow.com/a/1058804
-  bool isWinner(int x, int y) {
+    bool isWinner(int x, int y) {
     var col = 0, row = 0, diag = 0, rdiag = 0;
     final player = matrix[x][y];
     final n = countMatrix;
