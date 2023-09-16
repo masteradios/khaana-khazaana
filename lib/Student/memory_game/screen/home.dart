@@ -232,7 +232,7 @@ class _TileState extends State<Tile> {
               : widget.imagePathUrl!,fit: BoxFit.fill,),
         )
             : Container(
-          child: Image.asset("assets/check.png",fit: BoxFit.fitHeight,),
+          child: Image.asset("assets/images/ check.png",fit: BoxFit.fitHeight,),
         ),
       ),
     );
