@@ -52,7 +52,12 @@ class _UploadVideoState extends State<UploadVideo> {
             body: Center(
       child: Column(
         children: [
+          const SizedBox(
+            height: 200,
+          ),
           Container(
+            width: 100,
+              height: 100,
               child: selectedfile.isEmpty
                   ? Image.network(
                       'https://play-lh.googleusercontent.com/ZyWNGIfzUyoajtFcD7NhMksHEZh37f-MkHVGr5Yfefa-IX7yj9SMfI82Z7a2wpdKCA',
@@ -62,19 +67,25 @@ class _UploadVideoState extends State<UploadVideo> {
                       'https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png',
                       fit: BoxFit.fill,
                     )),
-          GestureDetector(
-            onTap: () {
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+            ),
+            onPressed: () {
               _selectFile();
             },
-            child: Text('select videos'),
+            child: const Text('select videos'),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: GestureDetector(
-              onTap: () {
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+              onPressed: () {
                 _upload();
               },
-              child: Text('upload videos'),
+              child: const Text('upload videos'),
             ),
           )
         ],

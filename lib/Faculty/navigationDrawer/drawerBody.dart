@@ -18,7 +18,7 @@ ListTile listTileMyQuiz(context) {
   return ListTile(
     contentPadding: const EdgeInsets.only(left: 20),
     leading:
-        const Icon(FontAwesomeIcons.receipt, size: 20, color: Colors.black),
+        const Icon(FontAwesomeIcons.video, size: 20, color: Colors.black),
     title: Text(
       "Upload Video",
       style: TextStyle(

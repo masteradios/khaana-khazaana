@@ -91,7 +91,7 @@ AppBar appBarAbout(context) {
           child: IconButton(
               onPressed: () async {
                 String mailto =
-                    "mailto:sumitsinha401@gmail.com?subject=Query Regarding Quiz Application";
+                    "mailto:aaniketpradhan2110@gmail.com?subject=Query Regarding Quiz Application";
                 await launchUrlString(mailto,
                     mode: LaunchMode.externalApplication);
               },

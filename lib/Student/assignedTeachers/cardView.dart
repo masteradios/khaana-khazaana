@@ -217,7 +217,7 @@ Container facultyNameContainer(value, context) {
         fontSize: setSize(context, 23),
         fontWeight: FontWeight.bold,
         color: Colors.white, // You can change the text color
-        fontFamily: 'Montserrat',
+       // fontFamily: 'Montserrat',
       ),
     ),
   );
