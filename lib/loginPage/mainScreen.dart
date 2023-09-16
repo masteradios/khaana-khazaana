@@ -60,10 +60,12 @@ class _LoginPageState extends State<LoginPage> {
           border: Border.all(color: Colors.black, width: 1.7)),
       margin: const EdgeInsets.only(bottom: 50),
       width: 150,
-      child: Image.asset(
-        appLogo,
-        height: 130,
-        width: 150,
+      child: ClipOval(
+        child: Image.asset(
+          appLogo,fit: BoxFit.fill,
+          height: 150,
+          width: 150,
+        ),
       ),
     );
   }

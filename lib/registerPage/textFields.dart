@@ -52,36 +52,86 @@ Widget textFieldEmail() {
     },
   );
 }
+class textFieldPassword extends StatefulWidget {
+  const textFieldPassword({Key? key}) : super(key: key);
 
-Widget textFieldPassword() {
-  return Consumer<RegisterPageProvider>(
-    builder: (context, providerValue, child) {
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        child: TextFormField(
-          obscureText: true,
-          style: const TextStyle(color: Colors.white),
-          keyboardType: TextInputType.visiblePassword,
-          decoration: textFieldDecoration("Password"),
-          onChanged: (value) {
-            providerValue.passwordController(value);
-          },
-        ),
-      );
-    },
-  );
+  @override
+  State<textFieldPassword> createState() => _textFieldPasswordState();
 }
+
+class _textFieldPasswordState extends State<textFieldPassword> {
+  bool hidetext=false;
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<RegisterPageProvider>(
+      builder: (context, providerValue, child) {
+        return Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          child: TextFormField(
+            obscureText: hidetext,
+            style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.visiblePassword,
+            decoration: InputDecoration(hintStyle: TextStyle(color: Colors.white),hintText: "Password",suffixIcon:IconButton(
+              focusColor: Colors.black,
+              onPressed: () {
+                setState(() {
+                  hidetext = !hidetext;
+                });
+              },
+              icon: Icon(
+                  hidetext ? Icons.visibility_off : Icons.visibility),
+            ) ),
+            onChanged: (value) {
+              providerValue.passwordController(value);
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
+// Widget textFieldPassword() {
+//   bool hidetext=false;
+//   return Consumer<RegisterPageProvider>(
+//     builder: (context, providerValue, child) {
+//       return Container(
+//         margin: const EdgeInsets.symmetric(vertical: 10),
+//         child: TextFormField(
+//           obscureText: hidetext,
+//           style: const TextStyle(color: Colors.white),
+//           keyboardType: TextInputType.visiblePassword,
+//           decoration: InputDecoration(hintText: "Password",suffixIcon:IconButton(
+//             focusColor: Colors.black,
+//             onPressed: () {
+//               setState(() {
+//                 hidetext = !hidetext;
+//               });
+//             },
+//             icon: Icon(
+//                 hidetext ? Icons.visibility_off : Icons.visibility),
+//           ) ),
+//           onChanged: (value) {
+//             providerValue.passwordController(value);
+//           },
+//         ),
+//       );
+//     },
+//   );
+// }
 
 InputDecoration textFieldDecoration(String label) {
   return InputDecoration(
+
       labelText: label,
       labelStyle: const TextStyle(color: Colors.white),
       errorBorder: textFieldBorder(),
       focusedErrorBorder: textFieldBorder(),
       errorStyle: TextStyle(fontSize: 14),
-      border: textFieldBorder(),
-      enabledBorder: textFieldBorder(),
-      focusedBorder: textFieldBorder());
+      //border: textFieldBorder(),
+      //enabledBorder: textFieldBorder(),
+      //focusedBorder: textFieldBorder(),
+  );
 }
 
 OutlineInputBorder textFieldBorder() {
