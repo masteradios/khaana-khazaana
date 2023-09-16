@@ -149,7 +149,7 @@ ListTile listTileShare(context) {
     ),
     onTap: () async {
       String mailto =
-          "mailto:sumitsinha401@gmail.com?subject=Query Regarding Quiz Application";
+          "mailto:aniketpradhan2110@gmail.com?subject=Query Regarding Quiz Application";
       await launchUrlString(mailto,
       mode: LaunchMode.externalApplication);
     },

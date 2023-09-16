@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/constantString.dart';
 import 'Responsive.dart';
 import 'profileSection/provider.dart';
@@ -62,15 +61,19 @@ userImage() {
           color: Colors.white,
           border: Border.all(color: Colors.black, width: 1.7)),
       margin: const EdgeInsets.only(top: 40, bottom: 10),
+      width: 120,
       child: imgUrl == "null"
-          ? Image.asset(
-              appLogo,
-              height: 130,
-              width: 150,
-            )
+          ? ClipOval(
+            child: Image.asset(
+                appLogo,
+                height: 120,
+                width: 120,
+        fit: BoxFit.fill,
+              ),
+          )
           : Image.asset(
               imgUrl!,
-              height: 130,
+              height: 150,
               width: 150,
             ));
 }
