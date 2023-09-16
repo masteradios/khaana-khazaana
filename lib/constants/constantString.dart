@@ -1,7 +1,7 @@
 // String for Images.......................................
-const String appLogo = "assets/images/logo.png";
+const String appLogo = "assets/images/logo.jpg";
 const String userImg = "assets/images/user_img.png";
-const String splashImg = "assets/images/splash_Image.png";
+const String splashImg = "assets/images/splash_Image.jpeg";
 
 // String for Privacy Policy and Terms and Conditions...........................
 const String privacyPolicyURL = "https://firebasestorage.googleapis.com/v0/b/project-41bc9.appspot.com/o/terms%20and%20conditions%2Fprivacy%20policy.html?alt=media&token=cf0065d8-7263-41b2-989a-4daf353b6a6a";

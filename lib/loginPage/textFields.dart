@@ -32,26 +32,64 @@ Widget textFieldEmail() {
         },
       ));
 }
+class textFieldPassword extends StatefulWidget {
+  const textFieldPassword({Key? key}) : super(key: key);
+
+  @override
+  State<textFieldPassword> createState() => _textFieldPasswordState();
+}
+
+class _textFieldPasswordState extends State<textFieldPassword> {
+  bool hidetext=false;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Consumer<LoginPageProvider>(
+        builder: (context, providerValue, child) {
+          return TextFormField(
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: hidetext,
+            style: textStyleLabel(),
+            decoration: InputDecoration(hintStyle: TextStyle(color: Colors.white),hintText: "Password",suffixIcon:IconButton(
+              focusColor: Colors.black,
+              onPressed: () {
+                setState(() {
+                  hidetext = !hidetext;
+                });
+              },
+              icon: Icon(
+                  hidetext ? Icons.visibility_off : Icons.visibility),
+            ) ),
+            onChanged: (value) {
+              providerValue.passwordNotifier(value);
+            },
+          );
+        },
+      ),
+    );
+  }
+}
 
 // Text Field for password.....................................
-Widget textFieldPassword() {
-  return Padding(
-    padding: const EdgeInsets.all(18.0),
-    child: Consumer<LoginPageProvider>(
-      builder: (context, providerValue, child) {
-        return TextFormField(
-          keyboardType: TextInputType.visiblePassword,
-          obscureText: true,
-          style: textStyleLabel(),
-          decoration: inputTextDecoration("Password"),
-          onChanged: (value) {
-            providerValue.passwordNotifier(value);
-          },
-        );
-      },
-    ),
-  );
-}
+// Widget textFieldPassword() {
+//   return Padding(
+//     padding: const EdgeInsets.all(18.0),
+//     child: Consumer<LoginPageProvider>(
+//       builder: (context, providerValue, child) {
+//         return TextFormField(
+//           keyboardType: TextInputType.visiblePassword,
+//           obscureText: true,
+//           style: textStyleLabel(),
+//           decoration: inputTextDecoration("Password"),
+//           onChanged: (value) {
+//             providerValue.passwordNotifier(value);
+//           },
+//         );
+//       },
+//     ),
+//   );
+// }
 
 // Input Decoration for above TextFormFields.....................
 InputDecoration inputTextDecoration(String value) {
@@ -60,12 +98,12 @@ InputDecoration inputTextDecoration(String value) {
     labelText: value,
     labelStyle: textStyleLabel(),
     focusColor: Colors.white,
-    focusedBorder: textFieldBorder(),
-    enabledBorder: textFieldBorder(),
+    //focusedBorder: textFieldBorder(),
+    //enabledBorder: textFieldBorder(),
     errorBorder: textFieldBorder(),
     focusedErrorBorder: textFieldBorder(),
     errorStyle: TextStyle(fontSize: 14),
-    border: textFieldBorder(),
+    //border: textFieldBorder(),
   );
 }
 
