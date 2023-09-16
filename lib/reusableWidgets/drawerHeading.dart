@@ -59,7 +59,8 @@ userImage() {
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
-          border: Border.all(color: Colors.black, width: 1.7)),
+          //border: Border.all(color: Colors.black, width: 1.7),
+      ),
       margin: const EdgeInsets.only(top: 40, bottom: 10),
       width: 120,
       child: imgUrl == "null"
@@ -68,7 +69,7 @@ userImage() {
                 appLogo,
                 height: 120,
                 width: 120,
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
               ),
           )
           : Image.asset(

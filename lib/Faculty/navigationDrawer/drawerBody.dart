@@ -213,15 +213,16 @@ ListTile listTileShare(context) {
   return ListTile(
     contentPadding: const EdgeInsets.only(top: 15, left: 20),
     leading:
-        const Icon(FontAwesomeIcons.shareNodes, size: 20, color: Colors.black),
+    const Icon(FontAwesomeIcons.shareNodes, size: 20, color: Colors.black),
     title: Text(
       "Share",
       style: TextStyle(
-          fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
     ),
     onTap: () async {
-      await launchUrlString(appLink, webOnlyWindowName: "App Share");
-      Navigator.pop(context);
+      String mailto =
+          "mailto:aniketpradhan2110@gmail.com?subject=Query Regarding Gyaan Saathi";
+      await launchUrlString(mailto, mode: LaunchMode.externalApplication);
     },
   );
 }

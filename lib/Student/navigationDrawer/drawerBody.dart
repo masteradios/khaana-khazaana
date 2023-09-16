@@ -11,6 +11,7 @@ import '../../reusableWidgets/alertDialogs/alertDialogLogout.dart';
 import '../../reusableWidgets/profileSection/getProfileInfo.dart';
 import '../../reusableWidgets/profileSection/mainPage.dart';
 import '../../reusableWidgets/profileSection/provider.dart';
+import '../Course_Resourse/course_section.dart';
 import '../checkScores/checkScores.dart';
 
 ListTile listTileMyQuiz(context) {
@@ -19,13 +20,17 @@ ListTile listTileMyQuiz(context) {
     leading:
         const Icon(FontAwesomeIcons.receipt, size: 20, color: Colors.black),
     title: Text(
-      "My Quiz",
+      "Course",
       style: TextStyle(
         fontSize: setSize(context, 17),
         fontWeight: FontWeight.w400,
       ),
     ),
-    onTap: () {},
+    onTap: () {
+      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const CourseSection()));
+    },
   );
 }
 
@@ -166,7 +171,7 @@ ListTile listTileShare(context) {
     ),
     onTap: () async {
       String mailto =
-          "mailto:lintosaji.1990@gmail.com?subject=Query Regarding Quiz Application";
+          "mailto:aniketpradhan2110@gmail.com?subject=Query Regarding Gyan Saathi";
       await launchUrlString(mailto, mode: LaunchMode.externalApplication);
     },
   );

@@ -1,5 +1,5 @@
 // String for Images.......................................
-const String appLogo = "assets/images/logo.jpg";
+const String appLogo = "assets/images/logo.jpeg";
 const String userImg = "assets/images/user_img.png";
 const String splashImg = "assets/images/splash_Image.jpeg";
 
