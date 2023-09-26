@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../data/data.dart';
 import '../model/title_model.dart';
+import 'dart:async';
 
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -14,6 +15,10 @@ class _HomeState extends State<Home> {
   List<TileModel> gridViewTiles = <TileModel>[];
   List<TileModel> questionPairs = <TileModel>[];
 
+  Timer? _gameTimer;
+  int _secondsRemaining = 0;
+  bool _isGameInProgress = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -21,19 +26,30 @@ class _HomeState extends State<Home> {
     reStart();
   }
   void reStart() {
-
     myPairs = getPairs();
     myPairs.shuffle();
 
     gridViewTiles = myPairs;
-    Future.delayed(const Duration(seconds: 5), () {
-// Here you can write your code
+    setState(() {
+      _secondsRemaining = 5; // Set the initial countdown time (5 seconds in your case)
+      _isGameInProgress = true;
+    });
+
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _gameTimer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        print("2 seconds done");
-        // Here you can write your code for open new view
-        questionPairs = getQuestionPairs();
-        gridViewTiles = questionPairs;
-        selected = false;
+        if (_secondsRemaining > 0) {
+          _secondsRemaining--;
+        } else {
+          _gameTimer?.cancel(); // Stop the timer when the countdown reaches 0
+          _isGameInProgress = false;
+          questionPairs = getQuestionPairs();
+          gridViewTiles = questionPairs;
+          selected = false;
+        }
       });
     });
   }
@@ -73,6 +89,15 @@ class _HomeState extends State<Home> {
               points != 800 ? Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  if (_isGameInProgress)
+                    Text(
+                      'Time Left: $_secondsRemaining seconds',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
                   const Text(
                     "Your Points",
                     textAlign: TextAlign.start,
@@ -95,24 +120,22 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 20,
               ),
-              points != 800 ? GridView(
+              points != 800 ? GridView.builder(
                 shrinkWrap: true,
-                //physics: ClampingScrollPhysics(),
-                scrollDirection: Axis.vertical,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 10.0,
-                    maxCrossAxisExtent: 100.0
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 10.0,
+                  maxCrossAxisExtent: 100.0,
                 ),
-                children: List.generate(
-                    gridViewTiles.length, (index) {
+                itemCount: gridViewTiles.length,
+                itemBuilder: (context, index) {
                   return Tile(
                     imagePathUrl: gridViewTiles[index].getImageAssetPath(),
                     tileIndex: index,
                     parent: this,
                   );
-                }),
-              ) : Container(
+                },
+              ): Container(
                   child: Column(
                     children: <Widget>[
                       GestureDetector(
@@ -137,7 +160,7 @@ class _HomeState extends State<Home> {
                           ),),
                         ),
                       ),
-                      SizedBox(height: 50,),
+                      const SizedBox(height: 50,),
                     ],
                   )
               )
@@ -177,7 +200,7 @@ class _TileState extends State<Tile> {
               points = points + 100;
               print(selectedTile + " thishis" + widget.imagePathUrl!);
 
-              TileModel tileModel = new TileModel();
+              TileModel tileModel = TileModel();
               print(widget.tileIndex);
               selected = true;
               Future.delayed(const Duration(seconds: 2), () {
@@ -200,7 +223,7 @@ class _TileState extends State<Tile> {
               print(selectedIndex);
               selected = true;
               Future.delayed(const Duration(seconds: 2), () {
-                this.widget.parent!.setState(() {
+                widget.parent!.setState(() {
                   myPairs[widget.tileIndex!].setIsSelected(false);
                   myPairs[selectedIndex!].setIsSelected(false);
                 });
@@ -232,7 +255,7 @@ class _TileState extends State<Tile> {
               : widget.imagePathUrl!,fit: BoxFit.fill,),
         )
             : Container(
-          child: Image.asset("assets/images/ check.png",fit: BoxFit.fitHeight,),
+          child: Image.asset("assets/images/check.png",fit: BoxFit.fitHeight,),
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../reusableWidgets/appBar.dart';
 import '../Responsive.dart';
 import 'profilePageContent/emailContent.dart';
@@ -27,10 +26,10 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Container(
           alignment: Alignment.center,
           transformAlignment: Alignment.center,
-          padding: EdgeInsets.all(50),
+          padding: const EdgeInsets.all(50),
           child: Consumer<ProfilePageProvider>(
             builder: (context, providerValue, child) {
-              return Container(
+              return SizedBox(
                 width: ResponsiveWidget.isSmallScreen(context)
                     ? screenWidth(context)
                     : screenWidth(context) / 2,
