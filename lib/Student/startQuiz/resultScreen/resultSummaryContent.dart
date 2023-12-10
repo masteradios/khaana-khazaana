@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,21 +26,21 @@ Widget shareWidget(result, studentValue, quizValue, context) {
 Widget message(result, context) {
   if (result >= 50) {
     return Container(
-      margin: EdgeInsets.only(bottom: setSize(context, 30)),
+      // margin: EdgeInsets.only(bottom: setSize(context, 30)),
       child: Text("Hurray, You Passed the Test !!!",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.green,
-              fontSize: setSize(context, 30),
+              fontSize: setSize(context, 25),
               fontWeight: FontWeight.w600)),
     );
   } else {
     return Container(
         margin: EdgeInsets.only(bottom: setSize(context, 30)),
-        child: Text("OOPS..!!!!! You Didn't pass the Test.....",
+        child: Text("Whoops! You failed the exam.",
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Colors.redAccent, fontSize: setSize(context, 30))));
+                color: Colors.redAccent, fontSize: setSize(context, 25))));
   }
 }
 
@@ -52,8 +51,8 @@ Widget progressBarwithScore(studentValue, quizValue, context) {
       alignment: Alignment.center,
       children: [
         SizedBox(
-          width: 160,
-          height: 160,
+          width: 120,
+          height: 120,
           child: CircularProgressIndicator(
             value:
                 quizValue.totalRight / int.parse(studentValue.totalQuestions),
@@ -97,33 +96,60 @@ Widget resultContainer(result, context) {
 }
 
 Widget screenshot(studentValue, quizValue, result, sc_controller, context) {
-  return InkWell(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          FontAwesomeIcons.shareNodes,
-          color: Colors.blue,
-          size: setSize(context, 30),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "Share Your Score",
-            style: TextStyle(
-                fontSize: setSize(context, 20),
-                color: Colors.blue,
-                fontWeight: FontWeight.w600),
-          ),
+  return result >= 50
+      ? Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+                textAlign:TextAlign.center,
+                'Way to go, champ! You nailed it! Keep up the awesome work!!',
+                style: TextStyle(
+                    fontSize: setSize(context, 20),
+                    color: const Color.fromRGBO(255, 165, 0,100),
+                    fontWeight: FontWeight.bold)),
+            InkWell(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    FontAwesomeIcons.shareNodes,
+                    color: Colors.blue,
+                    size: setSize(context, 30),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Share Your Score",
+                      style: TextStyle(
+                          fontSize: setSize(context, 20),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
+                ],
+              ),
+              onTap: () async {
+                final image = await sc_controller.captureFromWidget(
+                    shareWidget(result, studentValue, quizValue, context));
+                saveAndShare(image);
+              },
+            ),
+          ],
         )
-      ],
-    ),
-    onTap: () async {
-      final image = await sc_controller.captureFromWidget(
-          shareWidget(result, studentValue, quizValue, context));
-      saveAndShare(image);
-    },
-  );
+      : Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              textAlign: TextAlign.center,
+              "Don't worry! Losing a quiz happens sometimes. Keep learning and having fun..You'll get them next time!",
+              style: TextStyle(
+                  fontSize: setSize(context, 15),
+                  color: const Color.fromRGBO(200, 162, 200,1),
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+        );
 }
 
 void saveAndShare(Uint8List bytes) async {
@@ -132,8 +158,7 @@ void saveAndShare(Uint8List bytes) async {
   image.writeAsBytesSync(bytes);
   XFile imageFileAsXFile = XFile(image.path);
   await Share.shareXFiles([imageFileAsXFile],
-      text:
-          "Hi, I have Participated in Quiz. Here is My Score. Let's Download and Learn.");
+      text: "This is my score on the quiz i attempted");
 }
 
 Widget homePageNaviagte(context) {

@@ -94,7 +94,7 @@ Widget submitButtonPageView(context, pageController, answers, snapshot, index) {
             },
             child: Text(
               "Submit",
-              style: TextStyle(fontSize: setSize(context, 20)),
+              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: setSize(context, 20)),
             )),
       );
     },
@@ -106,7 +106,7 @@ buttonStyle(context) {
       elevation: const MaterialStatePropertyAll(15),
       shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
-      backgroundColor: MaterialStatePropertyAll(hexToColor("#555553")),
+      backgroundColor: const MaterialStatePropertyAll(Colors.deepPurpleAccent),
       padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
           horizontal: setSize(context, 15), vertical: setSize(context, 10))));
 }
