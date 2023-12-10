@@ -1,6 +1,6 @@
 # GyaanSaathi
 
-Welcome to GyaanSaathi, an innovative educational app developed by [Your Group's Name]. This app is designed to identify and support slow learners through adaptive quizzes, personalized learning schedules, and interactive educational games.
+Welcome to GyaanSaathi, an innovative educational app developed by Team Khaana-Khazaana. This app is designed to identify and support slow learners through adaptive quizzes, personalized learning schedules, and interactive educational games.
 
 ## Features
 
