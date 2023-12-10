@@ -1,16 +1,12 @@
-# khaana_khazaana
+# GyaanSaathi
 
-A new Flutter project.
+Welcome to GyaanSaathi, an innovative educational app developed by [Your Group's Name]. This app is designed to identify and support slow learners through adaptive quizzes, personalized learning schedules, and interactive educational games.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Adaptive Quizzes:** Customized quizzes that adapt to individual learning levels.
+- **Personalized Learning Schedules:** Machine Learning-driven schedules to address individual strengths and weaknesses.
+- **Dual User Interfaces:** Separate interfaces for teachers and students for optimized functionality.
+- **Real-time Progress Monitoring:** Comprehensive statistical data for teachers and students to monitor progress.
+- **One-on-One Chats with Tutors:** Students can engage in direct, personalized conversations with tutors.
+- **Interactive Educational Games:** Games to promote cognitive development and enhance critical thinking.
