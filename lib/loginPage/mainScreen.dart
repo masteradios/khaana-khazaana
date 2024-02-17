@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constants/constantString.dart';
 import '../reusableWidgets/Responsive.dart';
-import '../reusableWidgets/createColor.dart';
 import 'notUserSignup.dart';
 import 'submitButton.dart';
 import 'textFields.dart';
@@ -44,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           logoApp(),
           loginText(context), // See below.........
           textFieldEmail(), // See textFields.dart..................
-          textFieldPassword(), // See textFields.dart..................
+          const textFieldPassword(), // See textFields.dart..................
           submitButton(), // See submitButton.dart..................
           notUserSignup(context), //See notUserSignup.dart..............
         ],
@@ -62,7 +61,8 @@ class _LoginPageState extends State<LoginPage> {
       width: 150,
       child: ClipOval(
         child: Image.asset(
-          appLogo,fit: BoxFit.fill,
+          appLogo,
+          fit: BoxFit.fill,
           height: 150,
           width: 150,
         ),
@@ -91,7 +91,7 @@ Widget loginText(context) {
 BoxDecoration pageDecoration() {
   return const BoxDecoration(
       gradient: LinearGradient(colors: [
-        Colors.teal,
-        Colors.blue,
-      ], begin: Alignment.bottomCenter, end: Alignment.topCenter));
+    Colors.teal,
+    Colors.blue,
+  ], begin: Alignment.bottomCenter, end: Alignment.topCenter));
 }

@@ -1,7 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project/loginPage/mainScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../Faculty/mainScreen.dart';
@@ -52,7 +51,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 Container(
                   color: Colors.white30,
                   alignment: Alignment.bottomCenter,
-                  child: Image.asset(splashImg, fit: BoxFit.fitWidth, height: screenHeight(context) / 1.5),
+                  child: Image.asset(splashImg,
+                      fit: BoxFit.fitWidth,
+                      height: screenHeight(context) / 1.5),
                 ),
               ],
             ),
@@ -70,9 +71,9 @@ class _SplashScreenState extends State<SplashScreen> {
     getProfileInfo(profileProvider);
 
     return profileProvider.userType == "1"
-        ?  FacultyHome()
+        ? const FacultyHome()
         : profileProvider.userType == "0"
-            ?  StudentHome()
-            :  Register();
+            ? const StudentHome()
+            : const Register();
   }
 }

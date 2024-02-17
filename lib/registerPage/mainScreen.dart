@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import '../reusableWidgets/Responsive.dart';
 import 'alreadyUserLogin.dart';
 import 'submitButton.dart';
-import 'termsandCondition.dart';
 import 'textFields.dart';
-import 'toggleButtons.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -23,6 +21,7 @@ class _RegisterState extends State<Register> {
         width: screenWidth(context),
         height: screenHeight(context),
         decoration: pageDecoration(),
+
         /// See Below.............................
         child: SingleChildScrollView(child: bodyContainer()),
       ),
@@ -42,7 +41,6 @@ class _RegisterState extends State<Register> {
         children: [
           /// See Below.............................
           registerText(),
-          toggleForStudentFaculty(),
           textFieldName(),
           textFieldEmail(),
           textFieldPassword(),
@@ -67,9 +65,8 @@ class _RegisterState extends State<Register> {
   BoxDecoration pageDecoration() {
     return const BoxDecoration(
         gradient: LinearGradient(colors: [
-          Colors.teal,
-          Colors.blue,
-    ],
-            begin: Alignment.bottomRight, end: Alignment.topLeft));
+      Colors.teal,
+      Colors.blue,
+    ], begin: Alignment.bottomRight, end: Alignment.topLeft));
   }
 }

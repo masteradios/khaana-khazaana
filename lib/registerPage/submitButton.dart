@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../loginPage/mainScreen.dart';
 import '../providers/RegisterPageProvider.dart';
+import '../questionnaire/mainScreen.dart';
 import '../reusableWidgets/Responsive.dart';
 import '../reusableWidgets/alertDialogs/alertDialogLoading.dart';
 import '../reusableWidgets/switchCaseLoginError.dart';
@@ -23,9 +23,7 @@ Widget buttonContent(providerValue, context) {
     width: 700,
     child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
-          elevation: 5
-        ),
+            backgroundColor: Colors.green, elevation: 5),
         onPressed: () async {
           if (providerValue.email.trim() != "" &&
               providerValue.password != "" &&
@@ -35,7 +33,6 @@ Widget buttonContent(providerValue, context) {
 
             setDataToFirebase(providerValue,
                 context); // Set data to Firebase See Below.............
-
           } else {
             long_flutter_toast("Please fill out all fields to Continue");
           }
@@ -43,8 +40,9 @@ Widget buttonContent(providerValue, context) {
         child: Text(
           "Submit",
           style: TextStyle(
-            color: Colors.white,
-              fontWeight: FontWeight.bold, fontSize: setSize(context, 22)),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: setSize(context, 22)),
         )),
   );
 }
@@ -69,7 +67,7 @@ Future<void> setDataToFirebase(providerValue, context) async {
       "experience": "",
       "qualification": "",
       "contact": "",
-      "attempt" : 0,
+      "attempt": 0,
     };
     // Set user data to collection in Firebase...........
     FirebaseFirestore.instance
@@ -83,7 +81,7 @@ Future<void> setDataToFirebase(providerValue, context) async {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const QuestionnairePage2(),
         ));
 
     // Delete Provider value..................
