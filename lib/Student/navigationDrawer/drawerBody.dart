@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/Student/activityPage/home_page.dart';
 import 'package:flutter_project/Student/screen/home_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -28,8 +29,8 @@ ListTile listTileMyQuiz(context) {
     ),
     onTap: () {
       Navigator.pop(context);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const CourseSection()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const CourseSection()));
     },
   );
 }
@@ -193,6 +194,27 @@ ListTile Game(context) {
           context,
           MaterialPageRoute(
             builder: (context) => const HomeScreen(),
+          ));
+    },
+  );
+}
+
+ListTile Activity(context) {
+  return ListTile(
+    style: ListTileStyle.drawer,
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading: const Icon(FontAwesomeIcons.apple, size: 20, color: Colors.black),
+    title: Text(
+      "Activity",
+      style: TextStyle(
+          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
+    ),
+    onTap: () {
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ActivityHomeScreen(),
           ));
     },
   );

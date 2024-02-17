@@ -53,6 +53,7 @@ dependencies:
   image_picker: ^1.0.4
   firebase_storage: ^11.2.6
   lottie: ^2.7.0
+  just_audio: ^0.9.36
 
 
 dev_dependencies:
@@ -84,7 +85,16 @@ flutter:
    - assets/success.wav
    - assets/true.wav
    - assets/tryAgain.wav
-
+   - assets/data/
+   - assets/audio/intro/
+   - assets/audio/screen_transition/
+   - assets/audio/alphabet_en/
+   - assets/audio/color/
+   - assets/audio/numeric_en/
+   - assets/audio/animals/
+   - assets/audio/birds/
+   - assets/images/animals/
+   - assets/images/birds/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

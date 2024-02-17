@@ -14,6 +14,7 @@ Drawer navigationDrawerStudent(context) {
           drawerHeader(context),
           listTileMyQuiz(context),
           Game(context),
+          Activity(context),
           listTileCheckScore(context),
           listTileProfile(context),
           listTileAbout(context),
