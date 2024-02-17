@@ -47,9 +47,12 @@ Widget buttonContent(providerValue, context) {
           },
           style: submitButtonStyle(),
           // Button Styling See below..............................
-          child: Text("Submit",
-              style: TextStyle(
-                  fontSize: setSize(context, 22), fontWeight: FontWeight.bold)),
+          child: Text(
+            'SUBMIT',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
       );
     },
@@ -60,7 +63,7 @@ Widget buttonContent(providerValue, context) {
 ButtonStyle submitButtonStyle() {
   return ButtonStyle(
       alignment: Alignment.center,
-      backgroundColor: const MaterialStatePropertyAll(Colors.blueAccent),
+      backgroundColor: const MaterialStatePropertyAll(Colors.green),
       elevation: const MaterialStatePropertyAll(10),
       padding: const MaterialStatePropertyAll(
           EdgeInsets.symmetric(horizontal: 15, vertical: 5)),

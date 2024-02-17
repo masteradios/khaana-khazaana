@@ -37,11 +37,9 @@ Widget cardWidget(validData, index, type) {
                         Row(
                           children: [
                             Expanded(
-                              flex: 2,
-                              child: headingContainer("About Faculty     :", context),
+                              child: headingContainer("About:", context),
                             ),
                             Expanded(
-                              flex: 2,
                               child: contentContainer(validData?[index]["about"], context),
                             ),
                           ],
@@ -50,7 +48,7 @@ Widget cardWidget(validData, index, type) {
                           children: [
                             Expanded(
                               flex: 3,
-                              child: headingContainer("Experience of Faculty  :", context),
+                              child: headingContainer("Rating:", context),
                             ),
                             Expanded(
                               flex: 2,

@@ -9,7 +9,9 @@ import 'alertDialogs/alertDialogLogout.dart';
 
 AppBar appBarSimple(context, title) {
   return AppBar(
-    title: Text(title),
+    title: Text(title,style: TextStyle(
+      color: Colors.white,
+    ),),
     centerTitle: true,
     elevation: 10,
     backgroundColor: Colors.blue,
@@ -40,7 +42,10 @@ AppBar appBarCreate(context, title) {
 
 AppBar appBarWithLogout(context, title) {
   return AppBar(
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.white),
+      ),
       centerTitle: true,
       elevation: 10,
       // actions: [
