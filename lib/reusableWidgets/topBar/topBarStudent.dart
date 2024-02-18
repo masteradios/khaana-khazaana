@@ -35,18 +35,23 @@ class TopBarStudent extends StatelessWidget {
                 child: TextButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentHome()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StudentHome()));
                     },
                     child: const Text("My Quiz",
                         style: TextStyle(color: Colors.white, fontSize: 20))),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => const CheckScore()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CheckScore()));
                     },
                     child: const Text("Check My Score",
                         style: TextStyle(color: Colors.white, fontSize: 20))),
@@ -55,7 +60,11 @@ class TopBarStudent extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfilePage(),
+                        ));
                   },
                   child: const Text("My Profile",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
@@ -65,7 +74,10 @@ class TopBarStudent extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutPage()));
                   },
                   child: const Text("About Us",
                       style: TextStyle(color: Colors.white, fontSize: 20)),
@@ -81,14 +93,17 @@ class TopBarStudent extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
-              IconButton(onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return alertDialogSignOut(context);
+              IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return alertDialogSignOut(context);
+                      },
+                    );
                   },
-                );
-              }, icon: const Icon(FontAwesomeIcons.rightFromBracket,color: Colors.white))
+                  icon: const Icon(FontAwesomeIcons.rightFromBracket,
+                      color: Colors.white))
             ],
           ),
         ],

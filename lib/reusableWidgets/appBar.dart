@@ -5,13 +5,25 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../Faculty/createQuiz/alertDialogAddQuestions/dialogAddQuestion.dart';
 import '../constants/constantString.dart';
 import 'Responsive.dart';
-import 'alertDialogs/alertDialogLogout.dart';
 
 AppBar appBarSimple(context, title) {
   return AppBar(
-    title: Text(title,style: TextStyle(
-      color: Colors.white,
-    ),),
+    automaticallyImplyLeading: false,
+    leading: IconButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      icon: Icon(
+        Icons.arrow_back,
+        color: Colors.white,
+      ),
+    ),
+    title: Text(
+      title,
+      style: TextStyle(
+        color: Colors.white,
+      ),
+    ),
     centerTitle: true,
     elevation: 10,
     backgroundColor: Colors.blue,
@@ -42,9 +54,10 @@ AppBar appBarCreate(context, title) {
 
 AppBar appBarWithLogout(context, title) {
   return AppBar(
+      iconTheme: const IconThemeData(color: Colors.white),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
       centerTitle: true,
       elevation: 10,

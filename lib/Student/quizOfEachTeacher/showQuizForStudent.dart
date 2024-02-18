@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/studentProviders/studentProvider.dart';
-import '../../reusableWidgets/Responsive.dart';
 import '../InstructionDialog/dialogMain.dart';
 
 Widget showQuizForStudent(context, snapshot, index) {
@@ -20,9 +19,8 @@ Widget showQuizForStudent(context, snapshot, index) {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.blue
-                ),
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.blue),
                 width: double.infinity,
                 padding: EdgeInsets.all(16.0),
                 child: Center(
@@ -40,7 +38,8 @@ Widget showQuizForStudent(context, snapshot, index) {
                   children: [
                     Center(
                       child: TextDisplay(
-                        snapshot.data.docs[index]['Quiz Description'].toString(),
+                        snapshot.data.docs[index]['Quiz Description']
+                            .toString(),
                         "desc",
                         context,
                       ),
@@ -74,16 +73,20 @@ Widget showQuizForStudent(context, snapshot, index) {
                               ),
                               onPressed: () async {
                                 providerValue.getDifficultyLevel(
-                                  snapshot.data.docs[index]['Difficulty'].toString(),
+                                  snapshot.data.docs[index]['Difficulty']
+                                      .toString(),
                                 );
                                 providerValue.getTotalQuestions(
-                                  snapshot.data.docs[index]['Total Questions'].toString(),
+                                  snapshot.data.docs[index]['Total Questions']
+                                      .toString(),
                                 );
                                 providerValue.getQuizTitle(
-                                  snapshot.data.docs[index]['Quiz Title'].toString(),
+                                  snapshot.data.docs[index]['Quiz Title']
+                                      .toString(),
                                 );
                                 providerValue.getQuizDescription(
-                                  snapshot.data.docs[index]['Quiz Description'].toString(),
+                                  snapshot.data.docs[index]['Quiz Description']
+                                      .toString(),
                                 );
                                 providerValue.getQuizID(
                                   snapshot.data.docs[index].id.toString(),
@@ -115,8 +118,8 @@ Widget TextDisplay(value, type, context) {
     type == "diff"
         ? "Difficulty: $value"
         : type == "total"
-        ? "Questions to Attempt: $value"
-        : "$value",
+            ? "Questions to Attempt: $value"
+            : "$value",
     style: textStyle(type, context),
   );
 }
@@ -124,7 +127,9 @@ Widget TextDisplay(value, type, context) {
 TextStyle textStyle(value, context) {
   return TextStyle(
     fontSize: (value == "title") ? 18.0 : 18.0,
-    color: (value == "title" ) ? Colors.white: Colors.black,
-    fontWeight: (value == "title" || value == "desc" ) ? FontWeight.bold : FontWeight.normal,
+    color: (value == "title") ? Colors.white : Colors.black,
+    fontWeight: (value == "title" || value == "desc")
+        ? FontWeight.bold
+        : FontWeight.normal,
   );
 }

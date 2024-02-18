@@ -1,6 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../providers/studentProviders/studentProvider.dart';
 import '../../reusableWidgets/Responsive.dart';
 import '../../reusableWidgets/createColor.dart';
@@ -26,74 +26,79 @@ Widget cardWidget(validData, index, type) {
                 // These containers are defined below..........................
                 type == "Grid"
                     ? Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                      children: [
-                        facultyNameContainer(
-                          validData?[index]["name"],
-                          context,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              facultyNameContainer(
+                                validData?[index]["name"],
+                                context,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: headingContainer("About:", context),
+                                  ),
+                                  Expanded(
+                                    child: contentContainer(
+                                        validData?[index]["about"], context),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 3,
+                                    child: headingContainer("Rating:", context),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: contentContainer(
+                                        validData?[index]["experience"],
+                                        context),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: headingContainer("About:", context),
-                            ),
-                            Expanded(
-                              child: contentContainer(validData?[index]["about"], context),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: headingContainer("Rating:", context),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: contentContainer(validData?[index]["experience"], context),
-                            ),
-                          ],
-                        ),
-
-                      ],
-                    ),
-                  ),
-                )
+                      )
                     : Column(
-                  children: [
-                    facultyNameContainer(
-                      validData?[index]["name"],
-                      context,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: headingContainer("About Faculty     :", context),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: contentContainer(validData?[index]["about"], context),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: headingContainer("Experience of Faculty  :", context),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: contentContainer(validData?[index]["experience"], context),
-                        ),
-                      ],
-                    ),
-
-                  ],
-                ),
+                        children: [
+                          facultyNameContainer(
+                            validData?[index]["name"],
+                            context,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: headingContainer(
+                                    "About Faculty     :", context),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: contentContainer(
+                                    validData?[index]["about"], context),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: headingContainer(
+                                    "Experience of Faculty  :", context),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: contentContainer(
+                                    validData?[index]["experience"], context),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                 SizedBox(height: 10),
                 // Divider(
                 //   color: Colors.black,
@@ -101,37 +106,94 @@ Widget cardWidget(validData, index, type) {
                 //   height: 0,
                 // ),
                 Container(
-                  width: 320,
-                  margin: EdgeInsets.only(bottom: 15, top: 2),
-                  child:ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const QuizFromEachFaculty()
-                          )
-                      );
+                    width: 320,
+                    margin: EdgeInsets.only(bottom: 15, top: 2),
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        await getProfileInfo(profileProvider);
+                        if (profileProvider.qualification == "" ||
+                            profileProvider.about == "") {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text(
+                                  "Alert",
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                elevation: 20,
+                                content: const Text(
+                                  "Kindly Update Profile Section to Participate in a Quiz",
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      "Cancel",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ProfilePage(),
+                                        ),
+                                      );
+                                    },
+                                    child: const Text(
+                                      "Update",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        } else {
+                          // Set Faculty ID to Provider...............
+                          studentProvider.setFacultyEmail(validData?[index].id);
+                          studentProvider
+                              .setFacultyName(validData?[index]["name"]);
+                          // navigate to QuizfromFaculty() class to get list of quiz assigned by particular faculty........
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const QuizFromEachFaculty(),
+                            ),
+                          );
+                        }
                       },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 4, // Adjust the elevation as needed
-                      primary: Colors.blue, // Set the button's background color
-                    ),
-                    child: Text(
-                      "Tap to View",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white, // Set the text color
-                        fontWeight: FontWeight.w600,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 4, // Adjust the elevation as needed
+                        primary:
+                            Colors.blue, // Set the button's background color
                       ),
-                    ),
-                  )
-                ),
+                      child: Text(
+                        "Tap to View",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white, // Set the text color
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    )),
               ],
             ),
           ),
           onTap: () async {
             await getProfileInfo(profileProvider);
-            if (profileProvider.qualification == "" || profileProvider.about == "") {
+            if (profileProvider.qualification == "" ||
+                profileProvider.about == "") {
               showDialog(
                 context: context,
                 builder: (context) {
@@ -215,13 +277,11 @@ Container facultyNameContainer(value, context) {
         fontSize: setSize(context, 23),
         fontWeight: FontWeight.bold,
         color: Colors.white, // You can change the text color
-       // fontFamily: 'Montserrat',
+        // fontFamily: 'Montserrat',
       ),
     ),
   );
 }
-
-
 
 // Container of Heading.............................
 Container headingContainer(value, context) {

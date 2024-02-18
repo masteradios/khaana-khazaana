@@ -34,6 +34,13 @@ class _QuizFromEachFacultyState extends State<QuizFromEachFaculty> {
             child: StreamBuilder(
               stream: firestoreSnapshots,
               builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blueAccent,
+                    ),
+                  );
+                }
                 if ((snapshot.data?.docs.length).toString() == "null" ||
                     (snapshot.data?.docs.length).toString() == "0") {
                   // If no List Available show this container.....................
@@ -42,9 +49,8 @@ class _QuizFromEachFacultyState extends State<QuizFromEachFaculty> {
                       child: textNoQuizAvailable());
                 } else {
                   // Create listView of the Faculty Quiz..........................
-                  return
-                    ResponsiveWidget.isSmallScreen(context)
-                  ? ListView.builder(
+                  return ResponsiveWidget.isSmallScreen(context)
+                      ? ListView.builder(
                           itemCount: snapshot.data?.docs.length,
                           itemBuilder: (context, index) {
                             if (!snapshot.hasData) {
