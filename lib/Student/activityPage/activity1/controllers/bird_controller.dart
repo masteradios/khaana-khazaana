@@ -20,13 +20,13 @@ List<CommonModel> birdsList = [
     voice: 'assets/audio/birds/Bird_V3.mp3',
   ),
   CommonModel(
-    name: 'Peigon',
+    name: 'Eagle',
     image: 'assets/images/birds/Bird_4.png',
     audio: 'assets/audio/birds/Bird_S4.mp3',
     voice: 'assets/audio/birds/Bird_V4.mp3',
   ),
   CommonModel(
-    name: 'Sparaow',
+    name: 'Sparrow',
     image: 'assets/images/birds/Bird_5.png',
     audio: 'assets/audio/birds/Bird_S5.mp3',
     voice: 'assets/audio/birds/Bird_V5.mp3',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/Student/activityPage/activity1/splash_screen.dart';
+import 'package:flutter_project/Student/activityPage/activity2/main.dart';
 import 'package:flutter_project/reusableWidgets/appBar.dart';
 import '../first_game/first_game_screen.dart';
 import '../memory_game/screen/home.dart';
@@ -38,7 +39,7 @@ class ActivityHomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FirstGameScreen()),
+                          builder: (context) => LetterClickGameScreen()),
                     );
                   },
                   child: Container(
@@ -51,11 +52,11 @@ class ActivityHomeScreen extends StatelessWidget {
                           SizedBox(
                               height: 160,
                               child: Image.asset(
-                                'assets/images/drag.png',
+                                'assets/images/activity2.jpg',
                               )),
                           const Spacer(),
                           const Text(
-                            'Drag and Drop Game',
+                            'LETTER ACTIVITY',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
@@ -90,11 +91,11 @@ class ActivityHomeScreen extends StatelessWidget {
                           SizedBox(
                               height: 160,
                               child: Image.asset(
-                                'assets/images/memory.png',
+                                'assets/images/activity1.jpg',
                               )),
                           const Spacer(),
                           const Text(
-                            'Memory Game',
+                            'SPELLING',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,

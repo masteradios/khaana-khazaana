@@ -79,12 +79,12 @@ class HomeScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           slivers: <Widget>[
             SliverAppBar(
-              expandedHeight: 188.0,
+              expandedHeight: 150.0,
               backgroundColor: Colors.grey[50],
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/images/bg.png',
-                  fit: BoxFit.cover,
+                  'assets/images/activity1.jpg',
+                  fit: BoxFit.fitHeight,
                   alignment: Alignment.topCenter,
                 ),
               ),

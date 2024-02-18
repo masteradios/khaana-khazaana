@@ -203,7 +203,8 @@ ListTile Activity(context) {
   return ListTile(
     style: ListTileStyle.drawer,
     contentPadding: const EdgeInsets.only(top: 15, left: 20),
-    leading: const Icon(FontAwesomeIcons.apple, size: 20, color: Colors.black),
+    leading: const Icon(FontAwesomeIcons.faceGrinStars,
+        size: 20, color: Colors.black),
     title: Text(
       "Activity",
       style: TextStyle(

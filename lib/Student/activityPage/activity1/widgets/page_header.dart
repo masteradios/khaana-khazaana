@@ -90,7 +90,7 @@ class _PageHeaderState extends State<PageHeader> {
                   alignment: Alignment.center,
                   children: [
                     Positioned(
-                      top: 30 - widget.offset / 4,
+                      top: 1 - widget.offset / 4,
                       child: Text(
                         widget.title,
                         style: kHeadingTextStyle,
